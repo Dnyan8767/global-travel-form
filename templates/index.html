@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Travel Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='travel_form.css') }}">
+</head>
+<body>
+    <header>
+        <h1 align="center">Global travel</h1>
+        <img src="https://res.cloudinary.com/jerrick/image/upload/d_642250b563292b35f27461a7.png,f_jpg,fl_progressive,q_auto,w_1024/66993ef3898754001da8dd87.png"
+        alt="travel image"
+        height="200"
+        width="100%">
+    </header>
+
+    <main>
+        <form action="/submit" method="post">
+            <section>
+             <h2>Traveller Details</h2>
+            <label for="name">Name:</label><br>
+            <input id="name" type="text" placeholder="Enter your First name"  name="first_name" required><br>
+            <input id="middle" type="text" placeholder="Enter your Middle name" name="middle_name" ><br>
+            <input id="Last" type="text" placeholder="Enter your Last name" name="last_name" ><br>
+            
+            <label for="contact">Contact NO.</label><br>
+            <input id="contact" type="tel" placeholder="8767516557" name="contact" ><br>
+
+            <label for="email">Email</label><br>
+            <input id="email" type="email" placeholder="Dnyan@8767" required name="email"><br>
+
+            <label for="DoB">Birth Date</label><br>
+            <input id="DoB" type="date" name="dob" ><br>
+
+            <Label for="gender" >Gender</Label>
+            <select id="gender" name="gender" required>
+                <option value="" selected disabled>Choose Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="others">Others</option>
+            </select><br>
+            <button type="button">Add Person</button>
+            </section>
+            <section>
+                <h2>Travel Details</h2>
+                <div>
+                <label for="start">Start Date</label>
+                <input id="start" type="date" required name="start_date"><br> 
+                <label for="End">End Date</label>
+                <input id="End" type="date" required name="end_date"><br> 
+
+                <label for="place">Place of Visit</label>
+                <input id="place" type="text" placeholder="Japan" required name="place"><br>
+
+
+                </div>
+                <div>
+                <label >Type of Trip</label><br>
+                <input id="family" type="radio" name="trip" value="family" required>
+                <label for="family" >Family Trip</label>
+
+                <input id="business" type="radio" name="trip" value="business">
+                <label for="business" >Business Trip</label><br>
+
+                <input id="Bachelor" type="radio" name="trip" value="Bachelor">
+                <label for="Bachelor" >Bachelor Trip</label>
+
+                <input id="honey" type="radio" name="trip" value="honeymoon">
+                <label for="honey" >HoneymoonTrip</label><br>
+                
+                <input id="others" type="radio" name="trip" value="others">
+                <label for="others" >Other</label>
+                </div>
+                <div>
+                    <Label for="service">Other Services</Label><br>
+
+                    <input id="Rental" type="checkbox" name="services" value="rental_car" >
+                    <label for="Rental">Rental Car</label>
+
+                    <input id="Guide" type="checkbox" name="services" value="guide">
+                    <label for="Guide">Tour Guide</label><br>
+
+                    <input id="taker" type="checkbox" name="services" value="taker">
+                    <label for="taker" >Care Taker</label>
+
+                    <input id="camera" type="checkbox" name="services" value="camera">
+                    <label for="camera">Photographer</label>
+
+                    <input  id="other" type="checkbox" name="services" value="other">
+                    <label for="other">Other Services</label>
+
+                </div>
+                <div>
+                    <h3 align="center">Terms and Conditions</h3>
+                    <ul>
+                        <li>Booking and Deposits: Most operators require an upfront non-refundable deposit (commonly 25% to 50% of the total package cost) to confirm a reservation, with the remaining balance due anywhere from 15 to 30 days prior to departure.</li>
+                        <li>Cancellations and Refunds: Cancellation penalties scale based on how close to the departure date you cancel. Last-minute cancellations often result in 100% forfeiture of fees, while non-refundable airline tickets carry complete cancellation charges. You can review standard framework samples via the</li>
+                        <li>Passports, Visas, and Health Requirements: Securing valid travel documents, entry visas, and required immunizations is strictly the responsibility of the traveler. For instance, international travel to India typically mandates a passport with at least 6 months of validity. Read full carrier requirements on the</li>
+                        <li>Baggage and Liability Limits: Carriers enforce strict weight caps (such as 32 kg per checked piece for flights) and limit monetary compensation for lost, delayed, or damaged luggage or personal injury. Review specific domestic air passenger rules on the IndiGo Conditions of Carriage.</li>
+                        <li>Force Majeure and Itinerary Changes: Operators reserve the right to alter itineraries, schedules, or accommodations due to unforeseen circumstances, weather, or political events, and are typically not liable for disruptions outside their control.</li>
+                    </ul>
+                    <label for="agree">I agree to the terms and conditions</label>
+                    <input id="agree" type="checkbox" required name="agree" value="Yes">
+                </div>
+                <div>
+                    <input id="health" type="radio" name="health" value="Yes" required>
+                    <label for="health">Add Health Insurance </label>
+
+                    <input id="no" type="radio" name="health" value="No">
+                    <label for="no">I do not want health insurance</label>
+                </div>
+                <button type="submit">Submit</button>
+
+            </section>
+        </form>
+    </main>
+
+    <footer>
+        <p>Thank you! Visit again</p>
+    </footer>
+</body>
+</html>
