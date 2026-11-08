@@ -5,11 +5,11 @@ import os
 
 app = Flask(__name__)
 
-# Database folder
+# Database path
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATABASE = os.path.join(BASE_DIR, "database", "travel.db")
 
-# Create database folder
+# Create database folder if it does not exist
 os.makedirs(os.path.dirname(DATABASE), exist_ok=True)
 
 
@@ -41,13 +41,13 @@ def create_table():
     con.close()
 
 
-# Open HTML form
+# Home page
 @app.route("/")
 def home():
     return render_template("index.html")
 
 
-# Receive form data
+# Submit travel form
 @app.route("/submit", methods=["POST"])
 def submit():
 
@@ -58,18 +58,16 @@ def submit():
     email = request.form.get("email")
     dob = request.form.get("dob")
     gender = request.form.get("gender")
-
     start_date = request.form.get("start_date")
     end_date = request.form.get("end_date")
     place = request.form.get("place")
-
     trip = request.form.get("trip")
+
     services = ", ".join(request.form.getlist("services"))
 
     agree = request.form.get("agree")
     health = request.form.get("health")
 
-    # Save data into database
     con = sqlite3.connect(DATABASE)
 
     con.execute("""
@@ -90,6 +88,9 @@ def submit():
     return "Travel Details Saved Successfully!"
 
 
+# Create table when application starts
+create_table()
+
+
 if __name__ == "__main__":
-    create_table()
     app.run(debug=True)
